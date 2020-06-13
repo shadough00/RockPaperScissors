@@ -7,22 +7,15 @@ public class RockPaperScissors {
 
 		//Create Scanner for user input
 		Scanner keyboard = new Scanner(System.in);
-		
+
 		//random number generator
 		Random rand = new Random();
-	
-		
-	
-		
-	
-		
-		
+
+		System.out.println("***Rock Paper Scissors Game***");
+
 		//Ask user for how many points to win and store data
 		System.out.print("Enter the number of points to win:\t");
 		int points_to_win = keyboard.nextInt();
-		//int points_to_win1 = Integer.parseInt(points_to_win);
-		
-		
 
 		//declare variables
 		int current_wins = 0;
@@ -32,11 +25,11 @@ public class RockPaperScissors {
 		String answer1;
 		String computer_move = "nothing";
 
-	
+
 		//create while loop for rock paper scissor and end the loop when one person reaches points to win
 		while (current_wins < points_to_win && current_losses < points_to_win){
 
-		//getting a random computer response
+			//getting a random computer response
 			int num = rand.nextInt(3);
 			if (num == 0) {
 				computer_move = "rock";
@@ -45,25 +38,19 @@ public class RockPaperScissors {
 			} else {
 				computer_move = "scissors";
 			}
-				
-			
-			
-			
+
 			//ask user for input
 			System.out.print("Rock, paper, or scissors?\t");
 			answer = keyboard.next();
 			answer1 = answer.toLowerCase();
 
-			//make sure they enter correct string
+			//make sure they enter a valid answer
 			if (answer1.equals("rock") || answer1.equals("scissors") || answer1.equals("paper")) {
 				;
 			} else {
 				System.out.println("Invalid Input......System Exiting");
 				System.exit(0);
 			}
-
-
-
 
 			//figures out if answer is win or lose:
 			if (answer1.equalsIgnoreCase("rock")) {
@@ -92,6 +79,7 @@ public class RockPaperScissors {
 				}
 			}
 
+			//Gives one point to the winner of the match
 			if (result.equals(", so you lose.")) {
 				current_losses = current_losses + 1;
 			} else if (result.equals(", so you win!")) {
@@ -102,7 +90,6 @@ public class RockPaperScissors {
 			//print result of move
 			System.out.println("The computer chose " + computer_move + " " + result + "\t(" + current_wins + '-' + current_losses + ')');
 		} 
-		
 
 		//print final results
 		if (current_wins > current_losses) {
@@ -111,13 +98,8 @@ public class RockPaperScissors {
 			System.out.println("Sorry, you lost. Better luck next time!");
 		}
 
-
-
-
-
-		
-		}
 	}
+}
 
 
 
