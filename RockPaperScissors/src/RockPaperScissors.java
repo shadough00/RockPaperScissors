@@ -1,18 +1,28 @@
 
 import java.util.Scanner;
-
+import java.util.Random;
 public class RockPaperScissors {
 
 	public static void main(String[] args) {
 
 		//Create Scanner for user input
 		Scanner keyboard = new Scanner(System.in);
-
-
+		
+		//random number generator
+		Random rand = new Random();
+	
+		
+	
+		
+	
+		
+		
 		//Ask user for how many points to win and store data
-		System.out.print("Points to win:\t");
-		String points_to_win = keyboard.next();
-		int points_to_win1 = Integer.parseInt(points_to_win);
+		System.out.print("Enter the number of points to win:\t");
+		int points_to_win = keyboard.nextInt();
+		//int points_to_win1 = Integer.parseInt(points_to_win);
+		
+		
 
 		//declare variables
 		int current_wins = 0;
@@ -20,12 +30,25 @@ public class RockPaperScissors {
 		String result = "lose";
 		String answer;
 		String answer1;
+		String computer_move = "nothing";
 
 	
 		//create while loop for rock paper scissor and end the loop when one person reaches points to win
-		while (current_wins < points_to_win1 && current_losses < points_to_win1){
+		while (current_wins < points_to_win && current_losses < points_to_win){
 
-		
+		//getting a random computer response
+			int num = rand.nextInt(3);
+			if (num == 0) {
+				computer_move = "rock";
+			} else if (num == 1) {
+				computer_move = "paper";
+			} else {
+				computer_move = "scissors";
+			}
+				
+			
+			
+			
 			//ask user for input
 			System.out.print("Rock, paper, or scissors?\t");
 			answer = keyboard.next();
@@ -39,32 +62,30 @@ public class RockPaperScissors {
 				System.exit(0);
 			}
 
-/*
-			//computer choice
-			String computerMove = ComputerOpponent.getMove(); 
+
 
 
 			//figures out if answer is win or lose:
 			if (answer1.equalsIgnoreCase("rock")) {
-				if (computerMove.equalsIgnoreCase("paper")) {
+				if (computer_move.equalsIgnoreCase("paper")) {
 					result = ", so you lose.";
-				} else if (computerMove.equalsIgnoreCase("scissors")) {
+				} else if (computer_move.equalsIgnoreCase("scissors")) {
 					result = ", so you win!";
 				} else  {
 					result = ", so it's a tie.";
 				}
 			} else if (answer1.equalsIgnoreCase("paper")) {
-				if (computerMove.equalsIgnoreCase("rock")) {
+				if (computer_move.equalsIgnoreCase("rock")) {
 					result = ", so you win!";
-				} else if (computerMove.equalsIgnoreCase("scissors")) {
+				} else if (computer_move.equalsIgnoreCase("scissors")) {
 					result = ", so you lose.";
 				} else {
 					result = ", so it's a tie.";
 				}
 			} else if (answer1.equalsIgnoreCase("scissors")) {
-				if (computerMove.equalsIgnoreCase("rock")) {
+				if (computer_move.equalsIgnoreCase("rock")) {
 					result = ", so you lose.";
-				} else if (computerMove.equalsIgnoreCase("paper")) {
+				} else if (computer_move.equalsIgnoreCase("paper")) {
 					result = ", so you win!";
 				} else {
 					result = ", so it's a tie.";
@@ -79,7 +100,7 @@ public class RockPaperScissors {
 				;
 			}
 			//print result of move
-			System.out.println("The computer chose " + computerMove + " " + result + "\t(" + current_wins + '-' + current_losses + ')');
+			System.out.println("The computer chose " + computer_move + " " + result + "\t(" + current_wins + '-' + current_losses + ')');
 		} 
 		
 
@@ -92,11 +113,11 @@ public class RockPaperScissors {
 
 
 
-*/
+
 
 		
 		}
 	}
-}
+
 
 
